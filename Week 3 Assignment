@@ -12,15 +12,15 @@
             ctx = canvas.getContext('2d')
             
   		
-			// keep track of initial position of various objects
+	    // keep track of initial position of various objects
             var x = 50,
-            	  height = randomInt(150, 400)
+            	height = randomInt(150, 400)
 			
 
 
 
-			//repeat this object 10 times
-			for (var i = 0; i < 30; i++) {
+	    //repeat this object 10 times
+	    for (var i = 0; i < 30; i++) {
 			
                 // draw top GREEN/BROWN bar(s)/rectangle(s)
                 ctx.fillStyle = 'rgb(' + randomInt(100, 200) + ', ' + randomInt(150, 255) + ', 132)'
@@ -38,7 +38,7 @@
                 x += 30
                 height += (randomInt(-20, 20))
         
-			}
+	    }
             
              // this function takes in a min value and a max value,
             // then returns a random integer in between.
