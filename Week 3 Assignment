@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rachal Tai Week 3 Assignment</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <canvas id="canvas" width="1000" height="1000"></canvas>
+        <script>
+
+            var canvas = document.getElementById('canvas'),
+            ctx = canvas.getContext('2d')
+            
+  		
+			// keep track of initial position of various objects
+            var x = 50,
+            	  height = randomInt(150, 400)
+			
+
+
+
+			//repeat this object 10 times
+			for (var i = 0; i < 30; i++) {
+			
+                // draw top GREEN/BROWN bar(s)/rectangle(s)
+                ctx.fillStyle = 'rgb(' + randomInt(100, 200) + ', ' + randomInt(150, 255) + ', 132)'
+                ctx.fillRect(x, 50, 20, height)
+                
+                
+                
+                // draw bottom ORANGE/RED bar(s)/rectangle(s)
+                ctx.fillStyle = 'rgb(243, ' + randomInt(0, 150) + ', ' + randomInt(30, 100) + ')'
+                ctx.fillRect(x, 700, 20, -(600-height))
+                
+                
+                
+                //modify the variable(s) each time it repeats
+                x += 30
+                height += (randomInt(-20, 20))
+        
+			}
+            
+             // this function takes in a min value and a max value,
+            // then returns a random integer in between.
+            function randomInt (min, max) {
+                return Math.round(Math.random() * (max - min) + min)
+            }
+            
+            
+
+        </script>
+    </body>
+</html>
