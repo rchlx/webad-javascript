@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rachal Week 4 Assignment</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <canvas id="canvas" width="1000" height="1000"></canvas>
+        <script>
+
+         var canvas = document.getElementById('canvas'),
+         ctx = canvas.getContext('2d')
+
+            
+         function green () {
+            this.y = 50
+            this.height = randomInt(150, 300)
+            this.color = 'rgb(' + randomInt(160, 190) + ', ' + randomInt(180, 210) + ', 201)'
+            this.change = randomInt(-10, 10)
+         }
+
+         //controls the dynamic of bars
+         green.prototype.update = function () {
+            this.y += this.change
+         }
+
+        green.prototype.draw = function () {
+            var x = 50,
+                width = 20
+            
+            //repeat this object 30 times
+            for (var i = 0; i < 30; i++) {
+            
+            
+                // draw top GREEN bar(s)/rectangle(s)
+                ctx.fillStyle = this.color
+                ctx.fillRect(x, this.y, width, this.height)
+                
+                //modify the variable(s) each time it repeats
+                x += 30
+                this.height += (randomInt(-100, 100))
+
+                if (this.height > 400 || this.height < 50) {
+                this.height = 100
+                }
+
+                if (this.y > 49 || this.height < 100) {
+                this.y = 50
+                }
+        
+            }
+        }   
+
+
+
+        function red () {
+            this.redHeight = -(700-(randomInt(150, 400)))
+         }
+
+        red.prototype.update = function () {
+            this.color = 'rgb(255, ' + randomInt(120, 170) + ', ' + randomInt(100, 140) + ')'
+         }
+
+        red.prototype.draw = function () {
+
+            var x = 50,
+                y = 800,
+                width = 20
+
+            
+            //repeat this object 30 times
+            for (var i = 0; i < 30; i++) {
+            
+            
+                // draw top GREEN bar(s)/rectangle(s)
+                ctx.fillStyle = 'rgb(255, ' + randomInt(120, 170) + ', ' + randomInt(100, 140) + ')'
+                ctx.fillRect(x, y, width, this.redHeight)
+                
+                //modify the variable(s) each time it repeats
+                x += 30
+                this.redHeight += randomInt(-100,100)
+
+                if (this.redHeight < -325 || this.redHeight > -50) {
+                this.redHeight = -150
+                }
+        
+            }
+        }
+
+
+
+        var total = 10
+        var bars = []
+        var bars2 = []
+
+        for (var i = 0; i < total; i++) {
+            bars.push(new green())
+            bars2.push(new red())
+
+            
+        }
+
+        animate()
+
+        function animate () {
+            requestAnimationFrame(animate)
+                
+                // clear the canvas
+                ctx.clearRect(0, 0, 1000, 1000)
+
+                // update ALL the circles
+                for (var i = 0; i < bars.length; i++) {
+                    bars[i].update()
+                    bars[i].draw()
+                }
+
+                for (var i = 0; i < bars2.length; i++) {
+                    bars2[i].update()
+                    bars2[i].draw()
+                }
+        }
+
+
+        function randomInt (min, max) {
+            return Math.round(Math.random() * (max - min) + min)
+        }
+            
+            
+
+        </script>
+    </body>
+</html>
