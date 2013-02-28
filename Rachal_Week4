@@ -8,8 +8,8 @@
         <canvas id="canvas" width="1000" height="1000"></canvas>
         <script>
 
-         var canvas = document.getElementById('canvas'),
-         ctx = canvas.getContext('2d')
+        var canvas = document.getElementById('canvas'),
+        ctx = canvas.getContext('2d')
 
             
          function green () {
@@ -19,7 +19,6 @@
             this.change = randomInt(-10, 10)
          }
 
-         //controls the dynamic of bars
          green.prototype.update = function () {
             this.y += this.change
          }
@@ -28,11 +27,8 @@
             var x = 50,
                 width = 20
             
-            //repeat this object 30 times
             for (var i = 0; i < 30; i++) {
             
-            
-                // draw top GREEN bar(s)/rectangle(s)
                 ctx.fillStyle = this.color
                 ctx.fillRect(x, this.y, width, this.height)
                 
@@ -67,12 +63,8 @@
                 y = 800,
                 width = 20
 
-            
-            //repeat this object 30 times
             for (var i = 0; i < 30; i++) {
             
-            
-                // draw top GREEN bar(s)/rectangle(s)
                 ctx.fillStyle = 'rgb(255, ' + randomInt(120, 170) + ', ' + randomInt(100, 140) + ')'
                 ctx.fillRect(x, y, width, this.redHeight)
                 
@@ -96,8 +88,6 @@
         for (var i = 0; i < total; i++) {
             bars.push(new green())
             bars2.push(new red())
-
-            
         }
 
         animate()
@@ -120,10 +110,9 @@
                 }
         }
 
-
-        function randomInt (min, max) {
-            return Math.round(Math.random() * (max - min) + min)
-        }
+                function randomInt (min, max) {
+                    return Math.round(Math.random() * (max - min) + min)
+                }
             
             
 
